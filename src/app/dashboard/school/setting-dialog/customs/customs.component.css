@@ -1,0 +1,124 @@
+/* General Styles */
+.custom-dialog {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: rgba(0, 0, 0, 0.5); /* Semi-transparent background */
+  z-index: 1000; /* Ensure this is below the add dialog */
+}
+
+/* Custom Fields Dialog Styles */
+.custom-fields-dialog {
+  background-color: white;
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+  width: 90%;
+  max-width: 600px;
+}
+
+/* Title Styles */
+.custom-fields-dialog h2 {
+  margin-top: 0;
+  margin-bottom: 20px;
+  font-size: 24px;
+  text-align: center;
+}
+
+/* Table Styles */
+table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-bottom: 20px;
+}
+
+table thead tr {
+  background-color: #f2f2f2;
+}
+
+table th,
+table td {
+  padding: 10px;
+  text-align: left;
+  border-bottom: 1px solid #ddd;
+}
+
+table th {
+  font-weight: bold;
+}
+
+table td button {
+  margin-right: 5px;
+  padding: 5px 10px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 14px;
+  background-color: #007bff; /* Set the button background color */
+  color: white; /* Set the text color to white */
+}
+
+table td button:hover {
+  opacity: 0.8;
+}
+
+/* Form Actions Styles */
+.form-actions {
+  display: flex;
+  justify-content: flex-end; /* Align buttons to the right */
+  gap: 10px; /* Add space between buttons */
+  margin-top: 20px;
+}
+
+.form-actions button {
+  padding: 8px 16px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 14px;
+  background-color: #007bff; /* Set all form actions buttons to the same color */
+  color: white;
+}
+
+.form-actions .cancel {
+  background-color:  #007bff; /* Gray color for cancel button */
+}
+
+.form-actions .add {
+  background-color: #007bff; /* Primary button color */
+}
+
+/* Input Group for Renaming */
+.input-group {
+  margin-top: 20px;
+  display: flex;
+  flex-direction: column;
+}
+
+.input-group input {
+  margin-bottom: 10px;
+  padding: 8px;
+  font-size: 14px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+}
+
+.input-group .save,
+.input-group .cancel {
+  margin-top: 10px;
+  padding: 8px 16px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  background-color: #007bff; /* Set all input group buttons to the same color */
+  color: white;
+}
+
+.input-group .cancel {
+  background-color:  #007bff; /* Gray color for cancel button */
+}

@@ -1,0 +1,89 @@
+<div class="dialog-container" *ngIf="showDialog">
+  <div class="dialog">
+    <h2>{{ data?.id ? 'Edit' : 'Add' }} Class</h2>
+    <form [formGroup]="classForm" (ngSubmit)="onSave()">
+      <div class="form-group">
+        <label for="name">Class name:</label>
+        <input id="name" formControlName="name" required />
+      </div>
+      <div class="form-group">
+        <label for="short">Short:</label>
+        <input id="short" formControlName="short" required />
+      </div>
+      <button type="button" class="custom-fields" (click)="openCustomFields()">Custom fields</button>
+      <div class="form-group">
+        <label for="teacher">Class teacher:</label>
+        <input id="teacher" formControlName="teacher" readonly required />
+        <button type="button" class="change-class-teacher" (click)="openChangeClassTeacher()">Change class teacher</button>
+      </div>
+      <div class="form-group">
+        <label for="grade">Grade:</label>
+        <select id="grade" formControlName="grade" required>
+          <option *ngFor="let grade of grades" [value]="grade">{{ grade }}</option>
+        </select>
+      </div>
+      <div class="form-group">
+        <label for="timeOff">Time off:</label>
+        <input id="timeOff" formControlName="timeOff" required />
+      </div>
+      <div class="form-group">
+        <label for="allowSecondLesson">
+          <input type="checkbox" id="allowSecondLesson" formControlName="allowSecondLesson" />
+          Allow arrival of the second lesson
+        </label>
+      </div>
+      <div class="form-group">
+        <label for="preparation">Preparation:</label>
+        <input id="preparation" formControlName="preparation" />
+      </div>
+      <div class="form-group">
+        <label for="lunch">Lunch:</label>
+        <input id="lunch" formControlName="lunch" required />
+      </div>
+      <div class="form-group">
+        <label for="maxQuestionMarked">Max. on the question marked:</label>
+        <input id="maxQuestionMarked" formControlName="maxQuestionMarked" />
+      </div>
+      <div class="form-group">
+        <label for="specificTimeEveryDay">Class Teacher's Fixed Daily Time:</label>
+        <input id="specificTimeEveryDay" formControlName="specificTimeEveryDay" required />
+      </div>
+      <div class="form-group">
+        <label for="lessonsStartPeriod">Lessons start time:</label>
+        <input id="lessonsStartPeriod" formControlName="lessonsStartPeriod" required />
+      </div>
+      <div class="form-group">
+        <label for="lessonsEndPeriod">Lessons end time:</label>
+        <input id="lessonsEndPeriod" formControlName="lessonsEndPeriod" required />
+      </div>
+      <div class="form-group">
+        <label for="lessonsPerDayInterval">Allowed number of lessons per day:</label>
+        <input id="lessonsPerDayInterval" formControlName="lessonsPerDayInterval" required />
+      </div>
+      <div class="form-group">
+        <label for="daysWithLessons">Number of days in which the class should have lessons:</label>
+        <input id="daysWithLessons" formControlName="daysWithLessons" required />
+      </div>
+      <div class="form-actions">
+        <button type="button" class="cancel" (click)="onCancel()">Cancel</button>
+        <button type="submit">OK</button>
+      </div>
+    </form>
+  </div>
+</div>
+
+<!-- Dialog for changing the teacher -->
+<div *ngIf="showChangeTeacherDialog" class="dialog-overlay">
+  <div class="dialog">
+    <app-change-teacher
+      (teacherSelected)="onTeacherSelected($event)"
+      (closeDialog)="showChangeTeacherDialog = false"
+    ></app-change-teacher>
+  </div>
+</div>
+
+<app-custom-field-dialog2
+  [showDialog]="showCustomFieldsDialog2"
+  [customFields]="customFields"
+  (closeDialog)="closeCustomFieldsDialog2()"
+></app-custom-field-dialog2>

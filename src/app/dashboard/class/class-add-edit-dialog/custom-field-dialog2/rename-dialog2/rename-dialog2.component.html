@@ -1,0 +1,14 @@
+<div class="modal-backdrop" (click)="onCancel()"></div>
+<div class="rename-dialog">
+  <div class="dialog-content">
+    <h2>Timetable Planner</h2>
+    <p>Rename '{{ currentName }}' to:</p>
+    <form [formGroup]="renameForm">
+      <input id="newName" formControlName="newName" type="text" placeholder="Enter new name" />
+      <div class="dialog-actions">
+        <button type="button" (click)="onRename()">OK</button>
+        <button type="button" (click)="onCancel()">Cancel</button>
+      </div>
+    </form>
+  </div>
+</div>

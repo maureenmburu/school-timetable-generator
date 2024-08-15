@@ -1,0 +1,59 @@
+<div class="container">
+  <div class="header">
+    <h2>Classes</h2>
+    <button class="add-button" (click)="openAddDialog()">Add Class</button>
+  </div>
+  <div class="table-container">
+    <table class="class-table">
+      <thead>
+        <tr>
+          <th>Class Name</th>
+          <th>Teacher</th>
+          <th>Schedule</th>
+          <th>Time Off</th>
+          <th>Allow Arrival of Second Lesson</th>
+          <th>Preparation</th>
+          <th>Lunch</th>
+          <th>Max. on the Question Marked</th>
+          <th>Class Teacher</th>
+          <th>Class Teacher's Fixed Daily Time</th>
+          <th>Lessons Start Period</th>
+          <th>Lessons End Period</th>
+          <th>Allowed Number of Lessons Per Day</th>
+          <th>Days with Lessons</th>
+          <th>Grade</th>
+          <th>Actions</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let classObj of classData">
+          <td>{{classObj.name}}</td>
+          <td>{{classObj.teacher}}</td>
+          <td>{{classObj.schedule}}</td>
+          <td>{{classObj.timeOff}}</td>
+          <td>{{classObj.allowSecondLesson}}</td>
+          <td>{{classObj.preparation}}</td>
+          <td>{{classObj.lunch}}</td>
+          <td>{{classObj.maxQuestionMarked}}</td>
+          <td>{{classObj.teacher}}</td>
+          <td>{{classObj.specificTimeEveryDay}}</td>
+          <td>{{classObj.lessonsStartPeriod}}</td>
+          <td>{{classObj.lessonsEndPeriod}}</td>
+          <td>{{classObj.lessonsPerDayInterval}}</td>
+          <td>{{classObj.daysWithLessons}}</td>
+          <td>{{classObj.grade}}</td>
+          <td>
+            <button class="action-button edit" (click)="editClass(classObj)">Edit</button>
+            <button class="action-button delete" (click)="deleteClass(classObj.id)">Delete</button>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>
+<app-class-add-edit-dialog 
+  [showDialog]="showDialog" 
+  [data]="selectedClass" 
+  (refreshClasses)="refreshClasses()" 
+  (closeDialog)="closeDialog()">
+</app-class-add-edit-dialog>

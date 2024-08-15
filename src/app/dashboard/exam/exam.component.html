@@ -1,0 +1,36 @@
+<div class="container">
+  <h2>Exam Scheduling</h2>
+  <button class="add-button" (click)="openAddDialog()">Add Exam</button>
+  <table class="exam-table">
+    <thead>
+      <tr>
+        <th>Subject</th>
+        <th>Date</th>
+        <th>Start Time</th>
+        <th>End Time</th>
+        <th>Classroom</th>
+        <th>Actions</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let exam of examData">
+        <td>{{ exam.subject }}</td>
+        <td>{{ exam.date }}</td>
+        <td>{{ exam.startTime }}</td>
+        <td>{{ exam.endTime }}</td>
+        <td>{{ exam.classroom }}</td>
+        <td>
+          <button class="action-button" (click)="editExam(exam)">Edit</button>
+          <button class="action-button delete" (click)="deleteExam(exam.id)">Delete</button>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+
+<app-exam-edit-dialog 
+  [showDialog]="showDialog" 
+  [data]="selectedExam" 
+  (refreshExams)="refreshExams()" 
+  (closeDialog)="closeDialog()">
+</app-exam-edit-dialog>

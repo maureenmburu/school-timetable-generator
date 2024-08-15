@@ -1,0 +1,34 @@
+<!-- Change Classroom Dialog -->
+<div class="dialog-container" *ngIf="showDialog">
+    <div class="dialog">
+      <div class="selection">
+        <div>
+          <label>Click to select:</label>
+          <ul>
+            <li *ngFor="let teacher of teachers" (click)="selectTeacher(teacher)" [class.selected]="isSelected(teacher)">
+              {{ teacher.name }} ({{ teacher.short }})
+            </li>
+          </ul>
+        </div>
+        <div class="actions">
+          <button (click)="selectAll()">All</button>
+          <button (click)="removeAll()">Remove</button>
+        </div>
+      </div>
+      <div class="selection">
+        <div>
+          <label>Selection:</label>
+          <ul>
+            <li *ngFor="let selected of selectedTeachers">
+              {{ selected.name }} ({{ selected.short }})
+            </li>
+          </ul>
+        </div>
+      </div>
+      <div class="dialog-actions">
+        <button (click)="onCancel()">Cancel</button>
+        <button (click)="onSave()">OK</button>
+      </div>
+    </div>
+  </div>
+  

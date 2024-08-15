@@ -1,0 +1,39 @@
+<div class="dialog-container" *ngIf="showDialog">
+    <div class="dialog">
+      <h2>{{ data?.id ? 'Edit' : 'Add' }} Classroom</h2>
+      <form [formGroup]="classForm" (ngSubmit)="onSave()">
+        <div class="form-group">
+          <label for="name">Classroom Name:</label>
+          <input id="name" formControlName="name" required />
+        </div>
+        <div class="form-group">
+          <label for="short">Short:</label>
+          <input id="short" formControlName="short" required />
+        </div>
+        <div class="form-group">
+          <label for="count">Count:</label>
+          <input id="count" formControlName="count" required />
+        </div>
+        <button type="button" class="custom-fields" (click)="openCustomFields()">Custom fields</button>
+        <div class="form-group">
+          <label for="timeOff">Time Off:</label>
+          <input id="timeOff" formControlName="timeOff" required />
+        </div>
+        <div class="form-group">
+          <label for="type">Type:</label>
+          <input id="type" formControlName="type" required />
+        </div>
+        <div class="form-actions">
+          <button type="button" class="cancel" (click)="onCancel()">Cancel</button>
+          <button type="submit">OK</button>
+        </div>
+      </form>
+    </div>
+  </div>
+  
+  <app-custom-field-dialog3
+    [showDialog]="showCustomFieldsDialog"
+    [customFields]="customFields"
+    (closeDialog)="closeCustomFieldsDialog()"
+  ></app-custom-field-dialog3>
+  

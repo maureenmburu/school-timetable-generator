@@ -1,0 +1,14 @@
+<div class="modal-backdrop" (click)="onCancel()"></div>
+<div class="new-custom-field-dialog">
+  <div class="dialog-content">
+    <h2>Timetable Planner</h2>
+    <p>Please input the name of a NEW custom field:</p>
+    <form [formGroup]="newFieldForm">
+      <input id="newFieldName" formControlName="newFieldName" type="text" />
+      <div class="dialog-actions">
+        <button type="button" (click)="onAdd()">OK</button>
+        <button type="button" (click)="onCancel()">Cancel</button>
+      </div>
+    </form>
+  </div>
+</div>

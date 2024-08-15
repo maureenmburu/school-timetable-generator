@@ -1,0 +1,12 @@
+<div>
+    <label for="periodsPerDay">Periods per day:</label>
+    <select id="periodsPerDay" [(ngModel)]="selectedPeriod" name="periodsPerDay">
+      <option *ngFor="let period of periods" [value]="period">{{ period }}</option>
+    </select>
+  
+    <label for="numberOfDays">Number of days:</label>
+    <select id="numberOfDays" [(ngModel)]="selectedDay" name="numberOfDays">
+      <option *ngFor="let day of days" [value]="day">{{ day }}</option>
+    </select>
+  </div>
+  

@@ -1,0 +1,51 @@
+/* timetable-testing.component.css */
+.testing-container {
+  width: 1600px;
+  margin: auto;
+  padding: 20px;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  text-align: center;
+}
+
+.progress-bar {
+  width: 100%;
+  height: 20px;
+  background-color: #f3f3f3;
+  border-radius: 4px;
+  overflow: hidden;
+  margin-bottom: 20px;
+}
+
+.progress {
+  height: 100%;
+  background-color: #4caf50;
+  transition: width 0.5s;
+}
+
+.test-results ul {
+  list-style-type: none;
+  padding: 0;
+}
+
+.test-results li {
+  display: flex;
+  justify-content: space-between;
+  margin: 5px 0;
+}
+
+.success {
+  color: green;
+}
+
+.failure {
+  color: red;
+}
+
+.dialog {
+  background-color: white;
+  border: 1px solid #ccc;
+  padding: 10px;
+  border-radius: 4px;
+  margin-top: 20px;
+}

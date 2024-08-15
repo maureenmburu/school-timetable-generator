@@ -1,0 +1,64 @@
+<div class="main-container">
+  <!-- Sidebar -->
+  <div class="sidebar">
+    <h2>SAMIS</h2>
+    <ul>
+      <li><a routerLink="/dashboard"><i class="fas fa-tachometer-alt"></i>Dashboard</a></li>
+      <li><a routerLink="/dashboard/school"><i class="fas fa-school"></i> School</a></li>
+
+      <li><a routerLink="/dashboard/subject"><i class="fas fa-book"></i>  Subjects</a></li>
+     
+      <li><a routerLink="/dashboard/class"><i class="fas fa-school"></i>  Classes</a></li>
+      
+      <li><a routerLink="/dashboard/classroom"><i class="fas fa-chalkboard-teacher"></i>  classroom</a></li>
+      <li><a routerLink="/dashboard/teacher"><i class="fas fa-chalkboard-teacher"></i>  Teachers</a></li>
+      <li><a routerLink="/dashboard/relations"><i class="fas fa-project-diagram"></i> Relations</a></li>
+
+     
+      <li><a routerLink="/dashboard/timetable-testing"><i class="fas fa-clock"></i>  Time table testing</a></li>
+      <li><a routerLink="/dashboard/timeble"><i class="fas fa-table"></i>  Generate</a></li>
+      <li><a routerLink="/dashboard/verification"><i class="fas fa-check-circle"></i>  Verification</a></li>
+      
+      
+     <li><a routerLink="/dashboard/exam"><i class="fas fa-calendar-alt"></i> Exams</a></li>
+     <li><a routerLink="/dashboard/activities"><i class="fas fa-running"></i> Activities</a></li>
+  <!-- <li><a routerLink="/dashboard/holidays"><i class="fas fa-umbrella-beach"></i> Holidays</a></li> -->
+     <li><a routerLink="/dashboard/reports"><i class="fas fa-chart-bar"></i> Reports</a></li>
+
+
+      <!-- <li><a routerLink="/dashboard/conflict-detection"><i class="fas fa-exclamation-triangle"></i> Conflict Detection</a></li>
+      <li><a href="#"><i class="fas fa-calendar-check"></i> Calendar Integration</a></li>
+      <li><a href="#"><i class="fas fa-chart-bar"></i> Reporting and Analytics</a></li> -->
+    </ul>
+  </div>
+
+  <div class="content-container">
+    <!-- Navbar -->
+    <div class="navbar">
+      <div class="navbar-content">
+        <h1 style="font-size: 1.2em;">Timetable System</h1>
+        <div style="display: flex; margin-left: auto;">
+          <input type="text" class="search-input" placeholder="Search for...">
+          <button class="search-button"><i class="fas fa-search"></i></button>
+          <button class="profile-button" (click)="openLogoutModal()"><i class="fas fa-user"></i></button>
+          <!-- <ul class="dropdown-menu" *ngIf="dropdownOpen">
+            <li (click)="logout()">Logout</li>
+          </ul> -->
+        </div>
+      </div>
+    </div>
+
+    <!-- Main content -->
+    <div class="content">
+      <router-outlet></router-outlet>
+    </div>
+  </div>
+  <div class="modal-backdrop" *ngIf="showLogoutModal" (click)="closeLogoutModal()"></div>
+  <div class="logout-modal" *ngIf="showLogoutModal">
+    <h2>Confirm Logout</h2>
+    <p>Are you sure you want to log out?</p>
+    <button (click)="logout()">Yes, Logout</button>
+    <button (click)="closeLogoutModal()">Cancel</button>
+  </div>
+</div>
+

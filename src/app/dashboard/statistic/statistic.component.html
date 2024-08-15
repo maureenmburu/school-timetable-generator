@@ -1,0 +1,38 @@
+
+
+
+    <!-- Main content -->
+    <div class="content">
+        <div class="card-container">
+            <div class="card primary-card">
+                <h3>Class Timetable</h3>
+                <button style="color:black;">View Details</button>
+            </div>
+            <div class="card warning-card">
+                <h3>Exam timetable</h3>
+                <button style="color: black;">View Details</button>
+            </div>
+            <div class="card success-card">
+                <h3>Personal timetable</h3>
+                <button style="color: black;">View Details</button>
+            </div>
+            <div class="card danger-card">
+                <h3>Notice Board</h3>
+                <button style="color: black;"> View Details</button>
+            </div>
+        </div>
+
+        <router-outlet></router-outlet>
+
+        <!-- Chart examples -->
+        <div class="chart-container">
+            <div class="chart">
+                <h3>Area Chart Example</h3>
+                <canvas baseChart [data]="areaChartData" [options]="areaChartOptions" [type]="'line'"></canvas>
+            </div>
+            <div class="chart">
+                <h3>Bar Chart Example</h3>
+                <canvas baseChart [data]="barChartData" [options]="barChartOptions" [type]="'bar'"></canvas>
+            </div>
+        </div>
+    </div>

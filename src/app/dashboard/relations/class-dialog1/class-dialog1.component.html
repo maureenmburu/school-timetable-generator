@@ -1,0 +1,17 @@
+<div class="dialog">
+  <h3>Select Classes</h3>
+  <div class="classes-list">
+    <div>
+      <input type="checkbox" (change)="toggleSelectAll($event)">
+      <strong>Select All</strong>
+    </div>
+    <div *ngFor="let class of classes">
+      <input type="checkbox" [value]="class.name" (change)="onClassSelectionChange($event)" [(ngModel)]="class.selected">
+      {{ class.name }}
+    </div>
+  </div>
+  <div class="dialog-actions">
+    <button class="save-button" (click)="saveClasses()">Save</button>
+    <button class="cancel-button" (click)="cancelDialog()">Cancel</button>
+  </div>
+</div>

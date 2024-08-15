@@ -1,0 +1,48 @@
+<div class="container">
+  <div class="header">
+    <h2>Subjects</h2>
+    <div class="button-container">
+      <button class="add-button" (click)="openAddDialog()">Add Subject</button>
+    </div>
+  </div>
+  <div class="table-container">
+    <table class="subject-table">
+      <thead>
+        <tr>
+          <th>Name</th>
+          <th>Short</th>
+          <th>Count</th>
+          <th>Time off</th>
+          <th>Distribution</th>
+          <th>Homework preparation required</th> <!-- Optional -->
+          <th>Max. on the question marked</th> <!-- Optional -->
+          <th>Double lesson</th>
+          <th>Actions</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let subject of subjectData">
+          <td>{{subject.title}}</td>
+          <td>{{subject.short}}</td>
+          <td>{{subject.count}}</td>
+          <td>{{subject.timeOff}}</td>
+          <td>{{subject.distribution}}</td>
+          <td>{{subject.homeworkPreparationRequired}}</td> <!-- Optional -->
+          <td>{{subject.maxOnTheQuestionMarked}}</td> <!-- Optional -->
+          <td>{{subject.doubleLessons}}</td>
+          <td>
+            <button class="action-button" (click)="editSubject(subject)">Edit</button>
+            <button class="action-button delete" (click)="deleteSubject(subject.id)">Delete</button>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>
+
+<app-subject-add-edit-dialog 
+  [showDialog]="showDialog" 
+  [data]="selectedSubject" 
+  (refreshSubjects)="refreshSubjects()" 
+  (closeDialog)="closeDialog()">
+</app-subject-add-edit-dialog>

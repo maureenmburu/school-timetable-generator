@@ -1,0 +1,39 @@
+<div class="custom-fields-dialog-container" *ngIf="showDialog">
+  <div class="custom-fields-dialog">
+    <h2>Custom Fields</h2>
+    <table>
+      <thead>
+        <tr>
+          <th>Name</th>
+          <th>Value</th>
+          <th>Actions</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let field of customFields; let i = index">
+          <td>{{ field.name }}</td>
+          <td>{{ field.value }}</td>
+          <td>
+            <button (click)="startRenaming(i)">Rename</button>
+            <button (click)="removeField(i)">Remove</button>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+    <div class="form-actions">
+      <button class="cancel" (click)="close()">Close</button>
+      <button class="add" (click)="openAddDialog()">Add</button>
+    </div>
+    <div *ngIf="renamingIndex !== -1" class="input-group">
+      <input type="text" [(ngModel)]="renameFieldName" placeholder="New Field Name" />
+      <input type="text" [(ngModel)]="renameFieldValue" placeholder="New Field Value" />
+      <button class="save" (click)="saveRename()">Save</button>
+      <button class="cancel" (click)="cancelRename()">Cancel</button>
+    </div>
+  </div>
+  <app-add
+    [showDialog]="showAddDialog"
+    (addField)="addFieldToParent($event)"
+    (closeDialog)="closeAddDialog()"
+  ></app-add>
+</div>

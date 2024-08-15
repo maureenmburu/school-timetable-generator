@@ -1,0 +1,45 @@
+<div class="report-container">
+  <h2>Report</h2>
+  <div class="report-section">
+    <h3>Activities</h3>
+    <table class="report-table">
+      <thead>
+        <tr>
+          <th>Name</th>
+          <th>Date</th>
+          <th>Description</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let activity of activities">
+          <td>{{ activity.name }}</td>
+          <td>{{ activity.date | date }}</td>
+          <td>{{ activity.description }}</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+  <div class="report-section">
+    <h3>Exams</h3>
+    <table class="report-table">
+      <thead>
+        <tr>
+          <th>Subject</th>
+          <th>Date</th>
+          <th>Start Time</th>
+          <th>End Time</th>
+          <th>Classroom</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let exam of exams">
+          <td>{{ exam.subject }}</td>
+          <td>{{ exam.date | date }}</td>
+          <td>{{ exam.startTime }}</td>
+          <td>{{ exam.endTime }}</td>
+          <td>{{ exam.classroom }}</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>

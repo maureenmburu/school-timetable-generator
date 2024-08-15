@@ -1,0 +1,125 @@
+/* Page Container */
+.page-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+    min-height: 100vh; /* Ensure it takes at least the full height of the viewport */
+    box-sizing: border-box;
+  }
+  
+  /* Navbar Styling */
+  .nav {
+    display: flex;
+    justify-content: flex-end;
+    background-color: #333;
+    padding: 10px 20px;
+    width: 100%;
+    box-sizing: border-box;
+    margin: 0;
+    position: fixed;
+    top: 0;
+    z-index: 1000;
+  }
+  
+  .nav-link {
+    color: white;
+    padding: 10px 15px;
+    text-decoration: none;
+    transition: background-color 0.3s;
+    margin-left: 10px;
+  }
+  
+  .nav-link:hover {
+    background-color: #4CAF50;
+  }
+  
+  .nav-link.active {
+    background-color: #4CAF50;
+    color: white;
+    font-weight: bold;
+  }
+  
+  /* Carousel Container */
+  .carousel-container {
+    margin-top: 60px; /* Adjust to height of navbar */
+    width: 100%; /* Full width */
+    max-width: 100%; /* Ensure it uses the full width of the parent */
+    overflow: hidden; /* Prevent overflow issues */
+    flex: 1; /* Take remaining space to push footer down */
+  }
+  
+  /* Ensure carousel items take full width */
+  .carousel-inner {
+    width: 100%;
+  }
+  
+  /* Style carousel images */
+  .carousel-inner .carousel-item img {
+    height: 700px; /* Adjust height as needed */
+    width: 100%; /* Full width */
+    object-fit: cover; /* Ensure the image covers the container */
+  }
+  
+  /* Footer Styling */
+  .footer {
+    background-color: #333;
+    color: white;
+    padding: 20px 0;
+    width: 100%; /* Full width */
+    box-sizing: border-box;
+    text-align: center; /* Center the text */
+    position: fixed;
+    bottom: 0;
+    left: 0;
+  }
+  
+  
+  .footer .container {
+    max-width: 1200px; /* Constrain the content width */
+    margin: 0 auto; /* Center the container */
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+  }
+  
+  .footer h5 {
+    margin-bottom: 15px;
+    color: #4CAF50;
+  }
+  
+  .footer ul {
+    list-style: none;
+    padding: 0;
+  }
+  
+  .footer ul li {
+    margin-bottom: 10px;
+  }
+  
+  .footer ul li a {
+    color: white;
+    text-decoration: none;
+  }
+  
+  .footer ul li a:hover {
+    text-decoration: underline;
+  }
+  
+  .footer .social-media a {
+    display: inline-flex;
+    align-items: center;
+    color: white;
+  }
+  
+  .footer .social-media i {
+    margin-right: 5px;
+  }
+  
+  .footer .text-center {
+    margin-top: 20px;
+    font-size: 0.9em;
+    border-top: 1px solid #4CAF50;
+    padding-top: 10px;
+  }
+  

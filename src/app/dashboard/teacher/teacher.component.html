@@ -1,0 +1,72 @@
+<div class="parent-container">
+  <div class="container">
+    <div class="header">
+      <h2>Teachers</h2>
+      <button class="add-button" (click)="openAddDialog()">Add Teacher</button>
+    </div>
+    <div class="table-container">
+      <table class="class-table">
+        <thead>
+          <tr>
+            <th>Name</th>
+            <th>Short</th>
+            <th>Email</th>
+            <th>Phone</th>
+            <th>Count</th> <!-- Optional -->
+            <th class="time-off-column">Time Off</th> <!-- Optional -->
+            <th>Class Teacher</th>
+            <th>Qualification</th> <!-- Optional -->
+            <th>Max Windows</th> <!-- Optional -->
+            <th>Days Taught</th> <!-- Optional -->
+            <th>Lesson Intervals</th> <!-- Optional -->
+            <th>Max Questions Marked</th> <!-- Optional -->
+            <th>Max Windows Per Day</th> <!-- Optional -->
+            <th>Avoid 3 Consecutive Free Periods</th>
+            <th>Avoid 2 Consecutive Free Periods</th>
+            <!-- <th>Specific Time</th> Optional -->
+            <th>Contract</th>
+            <th>Actions</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let teacher of teacherData">
+            <td>{{teacher.name}}</td>
+            <td>{{teacher.short}}</td>
+            <td>{{teacher.email}}</td>
+            <td>{{teacher.phone}}</td>
+            <td>{{getOptionalField(teacher.count)}}</td>
+            <td class="time-off-column">{{getOptionalField(teacher.timeOff)}}</td>
+            <td>
+              <input 
+                type="checkbox" 
+                [checked]="teacher.classTeacher" 
+                (change)="toggleClassTeacher(teacher)"
+              >
+            </td>
+            <td>{{getOptionalField(teacher.Qualification)}}</td>
+            <td>{{getOptionalField(teacher.maxWindows)}}</td>
+            <td>{{getOptionalField(teacher.daysTaught)}}</td>
+            <td>{{getOptionalField(teacher.lessonIntervals)}}</td>
+            <td>{{getOptionalField(teacher.maxQuestionsMarked)}}</td>
+            <td>{{getOptionalField(teacher.maxWindowsPerDay)}}</td>
+            <td>{{teacher.avoidThreeConsecutiveFreePeriods ? 'Yes' : 'No'}}</td>
+            <td>{{teacher.avoidTwoConsecutiveFreePeriods ? 'Yes' : 'No'}}</td>
+            <!-- <td>{{getOptionalField(teacher.specificTime)}}</td> -->
+            <td>{{teacher.contract}}</td>
+            <td class="action-buttons">
+              <button class="action-button edit" (click)="editTeacher(teacher)">Edit</button>
+              <button class="action-button delete" (click)="deleteTeacher(teacher.id)">Delete</button>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>
+
+<app-teacher-add-edit-dialog 
+  [showDialog]="showDialog" 
+  [data]="selectedTeacher" 
+  (refreshTeachers)="refreshTeachers()" 
+  (closeDialog)="closeDialog()">
+</app-teacher-add-edit-dialog>

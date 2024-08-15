@@ -1,0 +1,13 @@
+<div class="dialog">
+  <h3>Select Subjects</h3>
+  <div class="subjects-list">
+    <div *ngFor="let subject of subjects">
+      <input type="checkbox" [value]="subject.name" (change)="onSubjectSelectionChange($event)">
+      {{ subject.name }}
+    </div>
+  </div>
+  <div class="dialog-actions">
+    <button (click)="saveSubjects()">Save</button>
+    <button (click)="cancelDialog()">Cancel</button>
+  </div>
+</div>

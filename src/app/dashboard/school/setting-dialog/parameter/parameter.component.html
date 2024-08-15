@@ -1,0 +1,44 @@
+<div class="modal-backdrop" (click)="close()"></div>
+<div class="parameters-dialog">
+  <h3>Parameters</h3>
+  <form (ngSubmit)="onSubmit()">
+    <div class="form-group">
+      <label>
+        <input type="checkbox" [(ngModel)]="parameters.generateDifferentTimetables" name="generateDifferentTimetables"><strong>
+        Generate different timetables</strong>
+      </label>
+      <p>A different timetable is generated every time. We recommend enabling this option.</p>
+    </div>
+    <div class="form-group">
+      <label>
+        <input type="checkbox" [(ngModel)]="parameters.checkExhaustion" name="checkExhaustion"><strong>
+        Check exhaustion</strong>
+      </label>
+      <p>
+        Max. number of consecutive periods taught by teachers that are not limited explicitly in the teachers' constraints dialog.
+        <input type="number" [(ngModel)]="parameters.maxExhaustion" name="maxExhaustion" min="1">
+      </p>
+    </div>
+    <div class="form-group">
+      <label>
+        <input type="checkbox" [(ngModel)]="parameters.checkWindowsOfTeachers" name="checkWindowsOfTeachers"><strong>
+        Check windows of teachers</strong>
+      </label>
+      <p>
+        Max. number of windows for teachers, who are not limited in the teachers' constraints dialog.
+        <input type="number" [(ngModel)]="parameters.maxWindows" name="maxWindows" min="1">
+      </p>
+    </div>
+    <div class="form-group">
+      <label>
+        <input type="checkbox" [(ngModel)]="parameters.allowZeroPeriod" name="allowZeroPeriod">
+       <strong> Allow the generator to place lessons on 0th period</strong>
+      </label>
+      <p>Program can place cards on 0th lessons. Check if your school has 0th lessons. It can simplify the generation.</p>
+    </div>
+    <div class="form-actions">
+      <button type="submit">OK</button>
+      <button type="button" (click)="close()">Cancel</button>
+    </div>
+  </form>
+</div>

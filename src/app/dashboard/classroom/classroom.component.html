@@ -1,0 +1,39 @@
+<div class="container">
+  <div class="header">
+    <h2>Classrooms</h2>
+    <button class="add-button" (click)="openAddDialog()">Add Classroom</button>
+  </div>
+  <div class="table-container">
+    <table class="class-table">
+      <thead>
+        <tr>
+          <th>Classroom Name</th>
+          <th>Short</th>
+          <th>Count</th>
+          <th>Time Off</th>
+          <th>Type</th>
+          <th>Actions</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let classroom of classroomData">
+          <td>{{classroom.name}}</td>
+          <td>{{classroom.short}}</td>
+          <td>{{classroom.count}}</td>
+          <td>{{classroom.timeOff}}</td>
+          <td>{{classroom.type}}</td>
+          <td>
+            <button class="action-button edit" (click)="editClassroom(classroom)">Edit</button>
+            <button class="action-button delete" (click)="deleteClassroom(classroom.id)">Delete</button>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>
+<app-classroom-add-edit-dialog 
+  [showDialog]="showDialog" 
+  [data]="selectedClass" 
+  (refreshClasses)="refreshClasses()" 
+  (closeDialog)="closeDialog()">
+</app-classroom-add-edit-dialog>

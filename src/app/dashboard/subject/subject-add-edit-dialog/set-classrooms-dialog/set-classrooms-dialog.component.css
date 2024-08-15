@@ -1,0 +1,49 @@
+.sub-dialog {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background: white;
+    border: 1px solid #ccc;
+    padding: 20px;
+    z-index: 3000;
+  }
+  
+  .dialog-content {
+    max-width: 400px;
+  }
+  
+  .dialog-content h2 {
+    margin-top: 0;
+  }
+  
+  .option {
+    margin-bottom: 15px;
+  }
+  
+  .option label {
+    font-weight: bold;
+  }
+  
+  .dialog-actions {
+    text-align: right;
+  }
+  
+  .dialog-actions button {
+    margin-left: 10px;
+  }
+  
+  .dialog-button {
+    background-color: #007bff;
+    color: white;
+    border: none;
+    padding: 8px 16px;
+    cursor: pointer;
+    border-radius: 5px;
+    font-size: 14px;
+  }
+  
+  .dialog-button:hover {
+    background-color: #0056b3;
+  }
+  

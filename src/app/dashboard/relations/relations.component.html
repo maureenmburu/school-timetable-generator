@@ -1,0 +1,132 @@
+<div class="relationship-container">
+  <h2>New Relations</h2>
+  <form [formGroup]="relationsForm" (ngSubmit)="onSubmit()">
+    <!-- Subjects Section -->
+    <div class="form-section horizontal-buttons">
+      <label for="subjects">1. Subjects:</label>
+      <button type="button" (click)="selectSubjects()">Select subjects</button>
+    </div>
+
+    <!-- Classes Section -->
+    <div class="form-section horizontal-buttons">
+      <label for="classes">2. Classes:</label>
+      <button type="button" (click)="changeClasses()">Change classes</button>
+    </div>
+
+    <!-- Condition Section -->
+    <div class="form-section">
+      <label for="condition">3. Condition:</label>
+      <div class="form-group">
+        <!-- Directly List All Conditions Here -->
+        <div class="radio-group">
+          <input type="radio" id="condition1" value="Two subjects cannot be placed on the same day" (change)="setCondition($event)" [checked]="selectedCondition === 'Two subjects cannot be placed on the same day'">
+          <label for="condition1">Two subjects cannot be placed on the same day</label>
+        </div>
+        <div class="radio-group">
+          <input type="radio" id="condition2" value="They cannot be placed consecutively on the same day" (change)="setCondition($event)" [checked]="selectedCondition === 'They cannot be placed consecutively on the same day'">
+          <label for="condition2">They cannot be placed consecutively on the same day</label>
+        </div>
+        <div class="radio-group">
+          <input type="radio" id="condition3" value="Card distribution over the week" (change)="setCondition($event)" [checked]="selectedCondition === 'Card distribution over the week'">
+          <label for="condition3">Lesson Distribution Throughout Week</label>
+        </div>
+        <div class="radio-group">
+          <input type="radio" id="condition4" value="Two subjects must be in one day" (change)="setCondition($event)" [checked]="selectedCondition === 'Two subjects must be in one day'">
+          <label for="condition4">Two subjects must be in one day</label>
+        </div>
+        <div class="radio-group">
+          <input type="radio" id="condition5" value="Two subjects must follow" (change)="setCondition($event)" [checked]="selectedCondition === 'Two subjects must follow'">
+          <label for="condition5">Two subjects must follow.</label>
+          <div class="sub-radio-group" *ngIf="selectedCondition === 'Two subjects must follow'">
+            <input type="radio" id="specifiedOrder" value="In specified order" formControlName="conditionOrder">
+            <label for="specifiedOrder">In specified order</label>
+            <input type="radio" id="arbitraryOrder" value="In arbitrary order" formControlName="conditionOrder">
+            <label for="arbitraryOrder">In arbitrary order</label>
+          </div>
+        </div>
+        <!-- Additional Conditions ... -->
+        <div class="radio-group">
+          <input type="radio" id="condition6" value="Break cannot be between group of lessons" (change)="setCondition($event)" [checked]="selectedCondition === 'Break cannot be between group of lessons'">
+          <label for="condition6">Break cannot be between group of lessons</label>
+        </div>
+        <div class="radio-group">
+          <input type="radio" id="condition7" value="Group of cards from different classes must be in one day" (change)="setCondition($event)" [checked]="selectedCondition === 'Group of cards from different classes must be in one day'">
+          <label for="condition7">Group of cards from different classes must be in one day</label>
+        </div>
+        <div class="radio-group">
+          <input type="radio" id="condition8" value="Divided cards from one subject must be on one day" (change)="setCondition($event)" [checked]="selectedCondition === 'Divided cards from one subject must be on one day'">
+          <label for="condition8">Divided cards from one subject must be on one day</label>
+        </div>
+        <div class="radio-group">
+          <input type="radio" id="condition9" value="These subjects for the groups of listed classes must start at the same time" (change)="setCondition($event)" [checked]="selectedCondition === 'These subjects for the groups of listed classes must start at the same time'">
+          <label for="condition9">These subjects for the groups of listed classes must start at the same time</label>
+        </div>
+        <div class="radio-group">
+          <input type="radio" id="condition10" value="The selected subjects have to be at the same time in all selected classes" (change)="setCondition($event)" [checked]="selectedCondition === 'The selected subjects have to be at the same time in all selected classes'">
+          <label for="condition10">The selected subjects have to be at the same time in all selected classes</label>
+        </div>
+        <div class="radio-group">
+          <input type="radio" id="condition11" value="This subject must be on the same period each day" (change)="setCondition($event)" [checked]="selectedCondition === 'This subject must be on the same period each day'">
+          <label for="condition11">This subject must be on the same period each day</label>
+        </div>
+        <div class="radio-group">
+          <input type="radio" id="condition12" value="Reserve space for selected subjects" (change)="setCondition($event)" [checked]="selectedCondition === 'Reserve space for selected subjects'">
+          <label for="condition12">Reserve space for selected subjects</label>
+        </div>
+        <div class="radio-group">
+          <input type="radio" id="condition13" value="Subject must be first or last" (change)="setCondition($event)" [checked]="selectedCondition === 'Subject must be first or last'">
+          <label for="condition13">Subject must be first or last</label>
+        </div>
+        <div class="radio-group">
+          <input type="radio" id="condition14" value="The selected subjects can be in the afternoon (outside teaching block)" (change)="setCondition($event)" [checked]="selectedCondition === 'The selected subjects can be in the afternoon (outside teaching block)'">
+          <label for="condition14">The selected subjects can be in the afternoon (outside teaching block)</label>
+        </div>
+        <div class="radio-group">
+          <input type="radio" id="condition15" value="Sciences and Maths Before Noon" (change)="setCondition($event)" [checked]="selectedCondition === 'Sciences and Maths Before Noon'">
+          <label for="condition15">Sciences and Maths Before Noon</label>
+        </div>
+        <div class="radio-group">
+          <input type="radio" id="condition16" value="Arts and Languages in Afternoon" (change)="setCondition($event)" [checked]="selectedCondition === 'Arts and Languages in Afternoon'">
+          <label for="condition16">Arts and Languages in Afternoon</label>
+        </div>
+      </div>
+    </div>
+
+    <!-- Importance Section -->
+    <div class="form-section">
+      <label for="importance">Importance of this card relationship:</label>
+      <select id="importance" formControlName="importance">
+        <option *ngFor="let option of importanceOptions" [value]="option">{{ option }}</option>
+      </select>
+      <button type="button" (click)="toggleActivation()">{{ isDeactivated ? 'Make Active' : 'Deactivate' }}</button>
+    </div>
+
+    <!-- Note Section -->
+    <div class="form-section">
+      <label for="note">Note:</label>
+      <textarea id="note" formControlName="note" rows="2" cols="20"></textarea>
+    </div>
+
+    <!-- Form Actions -->
+    <div class="form-actions">
+      <button type="submit">OK</button>
+      <button type="button" (click)="onCancel()">Cancel</button>
+    </div>
+  </form>
+
+  <!-- Subjects Dialog -->
+  <app-subject-dialog1
+    *ngIf="showSubjectsDialog"
+    [subjects]="subjects"
+    (save)="onSubjectsDialogSave($event)"
+    (cancel)="onDialogCancel()"
+  ></app-subject-dialog1>
+
+  <!-- Classes Dialog -->
+  <app-class-dialog1
+    *ngIf="showClassesDialog"
+    [classes]="classes"
+    (save)="onClassesDialogSave($event)"
+    (cancel)="onDialogCancel()"
+  ></app-class-dialog1>
+</div>

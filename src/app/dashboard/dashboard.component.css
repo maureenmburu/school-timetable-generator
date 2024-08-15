@@ -1,0 +1,236 @@
+/* General reset */
+body, html {
+  margin: 0;
+  padding: 0;
+  font-family: Arial, sans-serif;
+  background-color: #f8f9fa;
+}
+
+/* Sidebar */
+.sidebar {
+  width: 250px;
+  height: 100vh;
+  position: fixed;
+  top: 0;
+  left: 0;
+  background-color: #343a40;
+  color: white;
+  padding: 20px;
+  box-sizing: border-box;
+}
+
+.sidebar h2 {
+  text-align: center;
+  font-size: 1.5em;
+  margin-bottom: 20px;
+}
+
+.sidebar ul {
+  list-style: none;
+  padding: 0;
+}
+
+.sidebar ul li {
+  padding: 10px 0;
+}
+
+.sidebar ul li a {
+  color: white;
+  text-decoration: none;
+  display: flex;
+  align-items: center;
+  padding: 10px;
+}
+
+.sidebar ul li a i {
+  margin-right: 10px;
+}
+
+.sidebar ul li a:hover {
+  background-color: #495057;
+}
+
+/* Dropdown menu */
+.sidebar ul li ul.dropdown {
+  display: none;
+  list-style: none;
+  padding: 0;
+  margin-left: 20px;
+}
+
+.sidebar ul li ul.dropdown li {
+  padding: 8px 0;
+}
+
+.sidebar ul li ul.dropdown.show {
+  display: block;
+}
+
+/* Main container */
+.main-container {
+  display: flex;
+  height: 100vh;
+}
+
+/* Content container */
+.content-container {
+  margin-left: 250px;
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+}
+
+/* Navbar */
+.navbar {
+  height: 64px;
+  background-color: #007bff;
+  color: white;
+  padding: 0 20px;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  position: fixed;
+  width: calc(100% - 250px);
+  top: 0;
+  left: 250px;
+  z-index: 1000;
+  box-sizing: border-box;
+}
+
+.navbar-content {
+  display: flex;
+  align-items: center;
+  width: 100%;
+}
+
+.navbar-content h1 {
+  margin: 0;
+}
+
+.search-input {
+  padding: 8px;
+  border-radius: 4px;
+  border: 1px solid #ccc;
+  outline: none;
+}
+
+.search-button, .profile-button {
+  background: none;
+  border: none;
+  color: white;
+  font-size: 1.5em;
+  cursor: pointer;
+}
+
+.search-button {
+  padding: 8px 10px;
+  border-radius: 4px;
+  background-color: #0062cc;
+  border: 1px solid #004b8d;
+}
+
+.profile-button {
+  padding: 8px 10px;
+  border-radius: 4px;
+  background-color: #0062cc;
+  border: 1px solid #004b8d;
+  margin-left: 5px;
+}
+
+/* Content */
+.content {
+  padding: 20px;
+  overflow-y: auto;
+  margin-top: 64px;
+}
+.sidebar {
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  z-index: 100;
+  padding: 48px 0 0;
+  background-color: #343a40;
+  color: white;
+}
+
+.sidebar .nav-link {
+  color: #cfd8dc;
+}
+
+.sidebar .nav-link.active {
+  color: white;
+}
+
+.sidebar .nav-link:hover {
+  color: white;
+}
+
+.sidebar .nav-item {
+  margin-bottom: 1rem;
+}
+
+.dropdown-menu-dark {
+  background-color: #343a40;
+  color: white;
+}
+
+.dropdown-menu-dark .dropdown-item {
+  color: #cfd8dc;
+}
+
+.dropdown-menu-dark .dropdown-item:hover {
+  color: white;
+  background-color: #495057;
+}
+/* Modal Backdrop */
+.modal-backdrop {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5);
+  z-index: 1000;
+}
+
+/* Logout Modal Styles */
+.logout-modal {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background-color: white;
+  padding: 20px;
+  border-radius: 5px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  z-index: 1001;
+  text-align: center;
+  width: 300px;
+}
+
+.logout-modal h2 {
+  margin-top: 0;
+}
+
+.logout-modal button {
+  margin: 10px;
+  padding: 10px 20px;
+  cursor: pointer;
+  background-color: #007bff;
+  color: white;
+  border: none;
+  border-radius: 5px;
+}
+
+.logout-modal button:first-child {
+  background-color: #007bff; /* Same color for both buttons */
+}
+
+.logout-modal button:last-child {
+  background-color: #007bff; /* Same color for both buttons */
+}
+
+.logout-modal button:hover {
+  background-color: #0056b3; /* Darker shade on hover */
+}

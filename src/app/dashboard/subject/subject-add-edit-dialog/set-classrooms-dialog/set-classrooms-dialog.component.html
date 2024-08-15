@@ -1,0 +1,25 @@
+<div class="sub-dialog">
+    <div class="dialog-content">
+      <h2>Set classrooms for lessons of this subject</h2>
+      <div class="option">
+        <input type="radio" id="replace" name="classroomOption" value="replace" (change)="selectOption('replace')">
+        <label for="replace">Replace:</label>
+        <p>The program will remove all classrooms and then add the selected rooms to all lessons for this subject.</p>
+      </div>
+      <div class="option">
+        <input type="radio" id="add" name="classroomOption" value="add" (change)="selectOption('add')">
+        <label for="add">Add:</label>
+        <p>Assign recommended classrooms to the set of available classrooms for this lesson.</p>
+      </div>
+      <div class="option">
+        <input type="radio" id="subjectClassrooms" name="classroomOption" value="subjectClassrooms" (change)="selectOption('subjectClassrooms')">
+        <label for="subjectClassrooms">Subject's classrooms:</label>
+        <p>Set the lessons of this subject to always use the "Subject classrooms" defined here.</p>
+      </div>
+      <div class="dialog-actions">
+        <button type="button" (click)="onConfirm()" class="dialog-button">OK</button>
+        <button type="button" (click)="onCancel()" class="dialog-button">Cancel</button>
+      </div>
+    </div>
+  </div>
+  

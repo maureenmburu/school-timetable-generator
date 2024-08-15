@@ -1,0 +1,73 @@
+<div class="dialog-overlay">
+  <div class="dialog">
+    <h2>Period</h2>
+    <form (ngSubmit)="saveBreak()">
+      <div class="form-group" *ngIf="isFieldApplicable('name')">
+        <label for="breakName">Name of the break:</label>
+        <input type="text" id="breakName" [(ngModel)]="newBreak.name" name="name">
+      </div>
+      <div class="form-group" *ngIf="isFieldApplicable('short')">
+        <label for="short">Short:</label>
+        <input type="text" id="short" [(ngModel)]="newBreak.short" name="short">
+      </div>
+      <div class="form-group" *ngIf="isFieldApplicable('position')">
+        <label for="breakPosition">Break position:</label>
+        <select id="breakPosition" [(ngModel)]="newBreak.position" name="position">
+          <option *ngFor="let i of [0,1,2,3,4,5,6,7,8]" [value]="i">
+            This break is before period nr {{ i }}
+          </option>
+        </select>
+      </div>
+      <div class="form-group start-end-group" *ngIf="isFieldApplicable('startEnd')">
+        <label for="startEnd">Start / End Time:</label>
+        <div class="input-group">
+          <input type="time" id="start" [(ngModel)]="newBreak.start" name="start" class="input-field">
+          <input type="time" id="end" [(ngModel)]="newBreak.end" name="end" class="input-field">
+        </div>
+      </div>
+      <div class="form-group" *ngIf="isFieldApplicable('printoutText')">
+        <label for="printoutText">Text for printouts:</label>
+        <input type="text" id="printoutText" [(ngModel)]="newBreak.printoutText" name="printoutText">
+      </div>
+      <div class="form-group" *ngIf="isFieldApplicable('printouts')">
+        <label>Printouts</label>
+        <div class="checkbox-group">
+          <div class="checkbox-item">
+            <input type="checkbox" id="summaryTimetables" [(ngModel)]="newBreak.summaryTimetables" name="summaryTimetables">
+            <label for="summaryTimetables">Summary timetables</label>
+          </div>
+          <div class="checkbox-item">
+            <input type="checkbox" id="teacherTimetables" [(ngModel)]="newBreak.teacherTimetables" name="teacherTimetables">
+            <label for="teacherTimetables">Teacher's timetables</label>
+          </div>
+          <div class="checkbox-item">
+            <input type="checkbox" id="classTimetables" [(ngModel)]="newBreak.classTimetables" name="classTimetables">
+            <label for="classTimetables">Class timetables</label>
+          </div>
+          <div class="checkbox-item">
+            <input type="checkbox" id="classroomTimetables" [(ngModel)]="newBreak.classroomTimetables" name="classroomTimetables">
+            <label for="classroomTimetables">Classroom timetables</label>
+          </div>
+        </div>
+      </div>
+      <div class="form-group" *ngIf="isFieldApplicable('printInBells')">
+        <label for="printInBells">Print in bells:</label>
+        <select id="printInBells" [(ngModel)]="newBreak.printInBells" name="printInBells">
+          <option value="all">All classes</option>
+          <option value="some">Some classes</option>
+          <option value="none">None</option>
+        </select>
+      </div>
+      <div class="form-group" *ngIf="isFieldApplicable('doubleLessons')">
+        <div class="checkbox-item">
+          <input type="checkbox" id="doubleLessons" [(ngModel)]="newBreak.doubleLessons" name="doubleLessons">
+          <label for="doubleLessons">Double lessons cannot span this break.</label>
+        </div>
+      </div>
+      <div class="dialog-actions">
+        <button type="submit" [disabled]="!isFormValid()">Save</button>
+        <button type="button" (click)="cancelBreak()">Cancel</button>
+      </div>
+    </form>
+  </div>
+</div>

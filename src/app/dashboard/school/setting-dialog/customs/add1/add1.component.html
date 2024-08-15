@@ -1,0 +1,12 @@
+<div class="add1-dialog" *ngIf="showDialog">
+    <div class="add-dialog">
+      <h2>Please input the name of a NEW custom field:</h2>
+      <input type="text" [(ngModel)]="newFieldName" placeholder="Field Name" />
+      <input type="text" [(ngModel)]="newFieldValue" placeholder="Field Value" />
+      <div class="form-actions">
+        <button class="add" (click)="add()">OK</button>
+        <button class="cancel" (click)="close()">Cancel</button>
+      </div>
+    </div>
+  </div>
+  

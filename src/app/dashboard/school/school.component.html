@@ -1,0 +1,46 @@
+<div class="container">
+  <div class="header">
+    <h2>School Settings</h2>
+    <button class="add-button" (click)="openSettingDialog()">Add new</button>
+  </div>
+  <div class="table-container">
+    <table class="class-table">
+      <thead>
+        <tr>
+          <th>Name of the school</th>
+          <th>Academic year</th>
+          <th>Registration name</th>
+          <th>Periods per day</th>
+          <th>Zero Periods</th>
+          <th>Allow Zero Period Lessons</th>
+          <th>Number of days</th>
+          <th>Weekend</th>
+          
+          <th>Multi-term</th>
+          <th>Actions</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let setting of settingData">
+          <td>{{ setting.schoolName }}</td>
+          <td>{{ setting.academicYear }}</td>
+          <td>{{ setting.registrationName }}</td>
+          <td>{{ setting.periodsPerDay }}</td>
+          <td>{{ setting.zeroPeriods ? 'Yes' : 'No' }}</td>
+          <td>{{ setting.allowZeroPeriodLessons ? 'Yes' : 'No' }}</td>
+          <td>{{ setting.numberOfDays }}</td>
+          <td>{{ setting.weekend }}</td>
+        
+          <td>{{ setting.multiTerm ? 'Yes' : 'No' }}</td>
+          <td>
+            <button class="action-button edit" (click)="editSetting(setting)">Edit</button>
+            <button class="action-button delete" (click)="deleteSetting(setting.id)">Delete</button>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <app-setting-dialog [showDialog]="showSettingDialog" [data]="selectedSetting" (refreshSetting)="refreshSettings()" (dialogClosed)="closeSettingDialog()">
+  </app-setting-dialog>
+</div>

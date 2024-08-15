@@ -1,0 +1,33 @@
+<div class="container">
+    <h2>Activities</h2>
+    <button class="add-button" (click)="openAddDialog()">Add Activity</button>
+    <table class="activities-table">
+      <thead>
+        <tr>
+          <th>Name</th>
+          <th>Date</th>
+          <th>Description</th>
+          <th>Actions</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let activity of activities">
+          <td>{{ activity.name }}</td>
+          <td>{{ activity.date }}</td>
+          <td>{{ activity.description }}</td>
+          <td>
+            <button class="action-button" (click)="editActivity(activity)">Edit</button>
+            <button class="action-button delete" (click)="deleteActivity(activity.id)">Delete</button>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+  
+  <app-activities-add-edit-dialog 
+    [showDialog]="showDialog" 
+    [data]="selectedActivity" 
+    (refreshActivities)="refreshActivities()" 
+    (closeDialog)="closeDialog()">
+  </app-activities-add-edit-dialog>
+  

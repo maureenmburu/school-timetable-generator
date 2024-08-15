@@ -1,0 +1,31 @@
+<div class="page-container">
+    <nav class="nav">
+      <a class="nav-link" [routerLink]="['/']">Home</a>
+      <a class="nav-link" [routerLink]="['/about-us']">About</a>
+      <!-- <a class="nav-link" href="#">Contact Us</a> -->
+      <a class="nav-link" href="#">Login</a>
+    </nav>
+  
+    <div class="about-us-container">
+      <!-- Background Cards -->
+      <div class="background-card top-card"></div>
+      <div class="background-card bottom-card"></div>
+  
+      <div class="about-us-content">
+        <div class="text-section">
+          <h1>About Us</h1>
+          <p>
+            Welcome to SAMIS Software Company, your trusted partner in innovative educational solutions. At SAMIS, we specialize in creating state-of-the-art software systems that simplify and enhance the educational experience for institutions, educators, and students alike.
+
+Our Product: The Timetable System
+Our flagship product, the Timetable System, is a comprehensive solution designed to automate and optimize the scheduling process for schools. With our system, school can effortlessly manage class schedules, allocate resources, and ensure efficient utilization of time and space.
+
+<button class="learn-more-button" (click)="navigateToHome()">Learn More</button>
+        </div>
+        <div class="image-section">
+          <img src="assets/photo-1718049720096-7f1af82d69af.avif" alt="About Us" />
+        </div>
+      </div>
+    </div>
+  </div>
+  

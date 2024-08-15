@@ -1,0 +1,20 @@
+<!-- timetable-testing.component.html -->
+<div class="testing-container">
+  <h2>Timetable Test</h2>
+  <div class="progress-bar">
+    <div class="progress" [style.width.%]="progress"></div>
+  </div>
+  <div class="test-results">
+    <ul>
+      <li *ngFor="let test of tests">
+        {{ test.subject }}: <span [class]="test.passed ? 'success' : 'failure'">
+          {{ test.passed ? '✔️' : '❌' }}
+        </span>
+      </li>
+    </ul>
+  </div>
+  <div class="dialog" *ngIf="testingComplete">
+    <p>Testing successful.</p>
+    <button (click)="closeDialog()">OK</button>
+  </div>
+</div>

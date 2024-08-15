@@ -1,0 +1,155 @@
+.container {
+  padding: 20px;
+  font-family: 'Arial', sans-serif;
+  width: calc(100% - 50px); /* Adjusted width */
+  max-width: 100%; /* Ensure it takes full width of the parent */
+  box-sizing: border-box; /* Include padding and border in the element's total width and height */
+}
+
+.header {
+  display: flex;
+  flex-direction: column; /* Change direction to column */
+  align-items: center; /* Center horizontally */
+  gap: 10px; /* Space between h2 and button */
+  margin-bottom: 20px; /* Margin below the header */
+}
+
+h2 {
+  margin: 0; /* Remove default margin */
+}
+
+.add-button {
+  background-color: #007bff;
+  color: white;
+  padding: 10px 20px;
+  border: none;
+  cursor: pointer;
+  border-radius: 5px;
+  font-size: 16px;
+}
+
+.add-button:hover {
+  background-color: #45a049;
+}
+
+.table-container {
+  max-height: 400px;
+  overflow-y: auto; /* Only vertical scrolling */
+  overflow-x: hidden; /* Prevent horizontal scrolling */
+  margin-top: 20px;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+}
+
+.class-table {
+  width: 100%; /* Full width of the container */
+  border-collapse: collapse;
+}
+
+.class-table th, .class-table td {
+  border: 1px solid #ddd;
+  padding: 8px;
+  text-align: left;
+}
+
+.class-table th {
+  background-color: #f2f2f2;
+  position: sticky;
+  top: 0;
+  z-index: 1;
+}
+
+.class-table tbody tr:nth-child(even) {
+  background-color: #f9f9f9;
+}
+
+.class-table tbody tr:hover {
+  background-color: #f1f1f1;
+}
+
+.action-button {
+  background-color: #4CAF50;
+  color: white;
+  border: none;
+  padding: 5px 10px;
+  cursor: pointer;
+  border-radius: 3px;
+  margin-right: 5px;
+}
+
+.action-button.edit {
+  background-color: #2196F3;
+}
+
+.action-button.delete {
+  background-color: #f44336;
+}
+
+.action-button:hover {
+  opacity: 0.8;
+}
+
+/* Styles for the modal dialog */
+.dialog-container {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.5);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 1000;
+}
+
+.dialog {
+  background: white;
+  padding: 20px;
+  border-radius: 8px;
+  min-width: 400px;
+  max-width: 90%;
+  max-height: 90%;
+  overflow-y: auto;
+  box-sizing: border-box;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+}
+
+.form-group {
+  margin-bottom: 15px;
+}
+
+.color-box {
+  width: 100px;
+  height: 50px;
+  border: 1px solid #ccc;
+  display: inline-block;
+  vertical-align: middle;
+  margin-right: 10px;
+}
+
+.change-button {
+  vertical-align: middle;
+}
+
+.form-actions {
+  text-align: right;
+}
+
+.form-actions button {
+  background-color: #4CAF50;
+  color: white;
+  padding: 10px 20px;
+  border: none;
+  cursor: pointer;
+  border-radius: 5px;
+  font-size: 16px;
+}
+
+.form-actions button.cancel {
+  background-color: #f44336;
+}
+
+.form-actions button:hover {
+  opacity: 0.8;
+}

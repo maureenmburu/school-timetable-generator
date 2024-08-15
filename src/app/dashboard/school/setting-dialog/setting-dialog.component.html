@@ -1,0 +1,79 @@
+<div class="overlay" *ngIf="showDialog">
+  <div class="dialog-container">
+    <h2>{{ data.id ? 'Edit' : 'Add' }} Setting</h2>
+    <form (ngSubmit)="onSubmit()">
+      <!-- Existing form groups -->
+      <div class="form-group">
+        <label for="schoolName">Name of the school:</label>
+        <input type="text" id="schoolName" [(ngModel)]="data.schoolName" name="schoolName" required>
+      </div>
+      <div class="form-group">
+        <label for="academicYear">Academic year:</label>
+        <input type="text" id="academicYear" [(ngModel)]="data.academicYear" name="academicYear" required>
+      </div>
+      <div class="form-group">
+        <label for="registrationName">Registration name:</label>
+        <input type="text" id="registrationName" [(ngModel)]="data.registrationName">
+      </div>
+
+      <div class="form-group-row">
+        <div class="form-group">
+          <label for="periodsPerDay">Periods per day:</label>
+          <select id="periodsPerDay" [(ngModel)]="data.periodsPerDay" name="periodsPerDay">
+            <option *ngFor="let period of periods" [value]="period">{{ period }}</option>
+          </select>
+        </div>
+        <div class="form-group">
+          <button type="button" class="margin-top-button" (click)="openBellTimesDialog()">Bell times / Rename periods</button>
+          <button type="button" class="margin-top-button" (click)="renameDays()">Rename days</button>
+        </div>
+      </div>
+
+      <div class="form-group-row">
+        <div class="form-group">
+          <label for="zeroPeriods">Number of Zero Periods:</label>
+          <input type="text" id="zeroPeriods" [(ngModel)]="data.zeroPeriods" name="zeroPeriods" placeholder="Enter number or 'N/A'">
+        </div>
+        <div class="form-group">
+          <label for="allowZeroPeriodLessons">Allow Zero Period Lessons:</label>
+          <select id="allowZeroPeriodLessons" [(ngModel)]="data.allowZeroPeriodLessons" name="allowZeroPeriodLessons">
+            <option value="Yes">Yes</option>
+            <option value="No">No</option>
+            <option value="N/A">N/A</option>
+          </select>
+        </div>
+      </div>
+
+      <div class="form-group">
+        <label for="numberOfDays">Number of days:</label>
+        <select id="numberOfDays" [(ngModel)]="data.numberOfDays" name="numberOfDays">
+          <option *ngFor="let day of days" [value]="day">{{ day }}</option>
+        </select>
+      </div>
+      <div class="form-group">
+        <label for="weekend">Weekend:</label>
+        <select id="weekend" [(ngModel)]="data.weekend" name="weekend">
+          <option value="Saturday - Sunday">Saturday - Sunday</option>
+          <option value="Friday - Saturday">Friday - Saturday</option>
+        </select>
+      </div>
+      <div class="form-group">
+        <input type="checkbox" id="multiTerm" [(ngModel)]="data.multiTerm" name="multiTerm">
+        <label for="multiTerm">I want to create multi term or multi-week timetable that will be different in each week or term</label>
+      </div>
+      <div class="button-container">
+        <button type="button" class="margin-top-button" (click)="parameters()">Parameters</button>
+        <button type="button" class="margin-top-button" (click)="customField()">Custom Field</button>
+      </div>
+      <div class="dialog-actions">
+        <button type="submit">Next</button>
+        <button type="button" (click)="close()">Close</button>
+      </div>
+    </form>
+  </div>
+  <app-rename-periods [showDialog]="showBellTimesDialog" (dialogClosed)="onBellTimesDialogClosed()"></app-rename-periods>
+  <app-rename-days *ngIf="showRenameDaysDialog" (close)="closeRenameDaysDialog()"></app-rename-days>
+  <app-parameter *ngIf="showParametersDialog" (dialogClosed)="closeParametersDialog()"></app-parameter>
+  <app-customs [showDialog]="showCustomFieldDialog" (closeDialog)="closeCustomFieldDialog()"></app-customs>
+
+</div>

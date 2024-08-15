@@ -1,0 +1,222 @@
+/* General reset */
+body, html {
+    margin: 0;
+    padding: 0;
+    font-family: Arial, sans-serif;
+    background-color: #f8f9fa;
+  }
+  
+  /* Sidebar */
+  .sidebar {
+    width: 250px;
+    height: 100vh; /* Cover full height of viewport */
+    position: fixed;
+    top: 0; /* Start from the top */
+    left: 0;
+    background-color: #343a40;
+    color: white;
+    padding: 20px;
+    box-sizing: border-box; /* Ensure padding is included in the width/height */
+  }
+  
+  .sidebar h2 {
+    text-align: center;
+    font-size: 1.5em;
+    margin-bottom: 20px;
+  }
+  
+  .sidebar ul {
+    list-style: none;
+    padding: 0;
+  }
+  
+  .sidebar ul li {
+    padding: 10px 0;
+  }
+  
+  .sidebar ul li a {
+    color: white;
+    text-decoration: none;
+    display: block;
+    padding: 10px;
+  }
+  
+  .sidebar ul li a:hover {
+    background-color: #495057;
+  }
+  
+  /* Main container */
+  .main-container {
+    display: flex;
+    height: 100vh; /* Ensure the full viewport height */
+  }
+  
+  /* Content container */
+  .content-container {
+    margin-left: 250px; /* Align content next to the sidebar */
+    flex: 1; /* Fill remaining width */
+    display: flex;
+    flex-direction: column;
+  }
+  
+  /* Navbar */
+  .navbar {
+    height: 64px;
+    background-color: #007bff;
+    color: white;
+    padding: 0 20px;
+    display: flex;
+    align-items: center;
+    justify-content: flex-start; /* Align items to the left */
+    position: fixed;
+    width: calc(100% - 250px); /* Adjust width to not overlap with sidebar */
+    top: 0;
+    left: 250px; /* Align with the sidebar */
+    z-index: 1000; /* Ensure navbar stays above other content */
+    box-sizing: border-box; /* Ensure padding is included in the width */
+  }
+  
+  .navbar-content {
+    display: flex;
+    align-items: center;
+    width: 100%; /* Ensure it takes full width */
+  }
+  
+  .navbar-content h1 {
+    margin: 0;
+  }
+  
+  .search-input {
+    padding: 8px;
+    border-radius: 4px;
+    border: 1px solid #ccc;
+    outline: none;
+  }
+  
+  .search-button, .profile-button {
+    background: none;
+    border: none;
+    color: white;
+    font-size: 1.5em;
+    cursor: pointer;
+  }
+  
+  .search-button {
+    padding: 8px 10px;
+    border-radius: 4px;
+    background-color: #0062cc;
+    border: 1px solid #004b8d;
+  }
+  
+  .profile-button {
+    padding: 8px 10px;
+    border-radius: 4px;
+    background-color: #0062cc;
+    border: 1px solid #004b8d;
+    margin-left: 5px;
+  }
+  
+  /* Content */
+  .content {
+    padding: 20px;
+    overflow-y: auto;
+    margin-top: 64px; /* Adjust for the height of the navbar */
+  }
+  
+  /* Card container */
+  .card-container {
+    display: flex;
+    justify-content: flex-start; /* Align cards to the start */
+    gap: 20px; /* Space between cards */
+    padding: 20px;
+    padding-left: 0; /* Remove left padding */
+    margin-left: 20px; /* Add margin to move cards to the left */
+    flex-wrap: nowrap; /* Prevent wrapping to arrange horizontally */
+    overflow-x: auto; /* Scroll horizontally if cards overflow */
+  }
+  
+  /* Card styling */
+  .card {
+    background-color: white;
+    padding: 20px;
+    border-radius: 4px;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+    width: 300px; /* Fixed width for cards */
+    text-align: center;
+    flex-shrink: 0; /* Prevent cards from shrinking */
+  }
+  
+  .primary-card {
+    background-color: #007bff;
+    color: white;
+  }
+  
+  .warning-card {
+    background-color: #ffc107;
+    color: white;
+  }
+  
+  .success-card {
+    background-color: #28a745;
+    color: white;
+  }
+  
+  .danger-card {
+    background-color: #dc3545;
+    color: white;
+  }
+  
+  .card h3 {
+    margin: 0 0 10px 0;
+  }
+  
+  .card button {
+    background-color: white;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 4px;
+    cursor: pointer;
+    color: inherit;
+  }
+  
+  .card button:hover {
+    background-color: #f8f9fa;
+  }
+  
+  /* Section container */
+  .section-container {
+    margin-top: 20px; /* Add margin to separate from cards */
+  }
+  
+  .section {
+    background-color: white;
+    padding: 20px;
+    margin-bottom: 20px;
+    border-radius: 4px;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+  }
+  
+  .section h3 {
+    margin-top: 0;
+  }
+  
+  .section p {
+    margin: 10px 0;
+  }
+  
+  /* Chart container */
+  .chart-container {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    margin-top: 40px; /* Adjust margin to move charts downwards */
+  }
+  
+  .chart {
+    width: calc(50% - 20px);
+    background-color: white;
+    padding: 20px;
+    border-radius: 4px;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+    text-align: center;
+  }

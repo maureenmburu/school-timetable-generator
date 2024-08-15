@@ -1,0 +1,91 @@
+.container {
+  padding: 20px;
+  font-family: Arial, sans-serif;
+}
+
+.header {
+  display: flex;
+  flex-direction: column; /* Change direction to column */
+  align-items: center; /* Center horizontally */
+  gap: 10px; /* Space between h2 and button */
+  margin-bottom: 20px; /* Margin below the header */
+}
+
+h2 {
+  color: #333;
+  margin: 0; /* Remove default margin */
+}
+
+.button-container {
+  display: flex;
+  justify-content: center; /* Center horizontally */
+  width: 100%; /* Full width of the parent */
+}
+
+.add-button {
+  background-color: #007bff;
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  margin-bottom: 15px;
+  cursor: pointer;
+  border-radius: 5px;
+  justify-content: center;
+}
+
+.add-button:hover {
+  background-color: #007bff;
+}
+
+.table-container {
+  overflow-y: auto;
+  max-height: 400px; /* Adjust based on your requirement */
+  border: 1px solid #ddd;
+  border-radius: 5px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.subject-table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.subject-table th, .subject-table td {
+  border: 1px solid #ddd;
+  padding: 8px;
+  text-align: left;
+}
+
+.subject-table th {
+  background-color: #f2f2f2;
+  color: #333;
+}
+
+.subject-table tr:nth-child(even) {
+  background-color: #f9f9f9;
+}
+
+.subject-table tr:hover {
+  background-color: #f1f1f1;
+}
+
+.action-button {
+  background-color: #007bff;
+  color: white;
+  border: none;
+  padding: 5px 10px;
+  cursor: pointer;
+  border-radius: 5px;
+}
+
+.action-button:hover {
+  background-color: #0056b3;
+}
+
+.delete {
+  background-color: #dc3545;
+}
+
+.delete:hover {
+  background-color: #c82333;
+}

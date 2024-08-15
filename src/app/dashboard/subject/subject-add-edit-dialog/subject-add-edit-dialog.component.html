@@ -1,0 +1,64 @@
+<div class="dialog-container" *ngIf="showDialog">
+  <div class="dialog">
+    <h2>{{data?.id ? 'Edit' : 'Add'}} Subject</h2>
+    <form [formGroup]="subjectForm" (ngSubmit)="onSave()">
+      <!-- form fields -->
+      <div class="form-group">
+        <label for="title">Subject title</label>
+        <input id="title" formControlName="title" />
+      </div>
+      <div class="form-group">
+        <label for="short">Short</label>
+        <input id="short" formControlName="short" />
+      </div>
+      <div class="form-group">
+        <label for="count">Count</label>
+        <input id="count" formControlName="count" type="number" />
+      </div>
+      <div class="form-group">
+        <label for="timeOff">Time off</label>
+        <input id="timeOff" formControlName="timeOff" />
+      </div>
+      <div class="form-group">
+        <label for="distribution">Distribution</label>
+        <input id="distribution" formControlName="distribution" />
+      </div>
+      <div class="form-group">
+        <label for="homeworkPreparationRequired">Homework preparation required</label>
+        <input id="homeworkPreparationRequired" formControlName="homeworkPreparationRequired" value="N/A" />
+      </div>
+      <div class="form-group">
+        <label for="maxOnTheQuestionMarked">Max. on the question marked</label>
+        <input id="maxOnTheQuestionMarked" formControlName="maxOnTheQuestionMarked" value="N/A" />
+      </div>
+      <div class="form-group">
+        <label for="doubleLessons">Double lesson</label>
+        <input id="doubleLessons" formControlName="doubleLessons" />
+      </div>
+      <button type="button" class="custom-fields" (click)="openCustomFields()">Custom fields</button>
+      <div class="form-group color-section">
+        <!-- color/picture fields -->
+      </div>
+      <div class="form-group">
+        <label for="classrooms">Classrooms</label>
+        <input id="classrooms" formControlName="classrooms" />
+        <button type="button" class="set-button" (click)="openSetClassroomsDialog()">Set for all lessons of this subject</button>
+      </div>
+      <div class="form-actions">
+        <button type="button" class="cancel-button" (click)="onCancel()">Cancel</button>
+        <button type="submit">Save</button>
+      </div>
+    </form>
+  </div>
+</div>
+<app-customfield
+  [showDialog]="showCustomFieldsDialog"
+  [customFields]="customFields"
+  (closeDialog)="closeCustomFieldsDialog()"
+
+></app-customfield>
+
+<app-set-classrooms-dialog *ngIf="showSetClassroomsDialog"
+  (closeDialog)="closeSetClassroomsDialog()"
+  (confirmDialog)="handleSetClassrooms($event)"
+></app-set-classrooms-dialog>
